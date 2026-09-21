@@ -1,5 +1,7 @@
 # ICS-Sniper Modbus-U Software Testbed
 
+**SWaT software testbed (Unconnected Modbus version)**
+
 This repository contains the software-only Modbus/TCP testbed used by ICS-Sniper. Six simulated PLCs and the SCADA application run on Linux hosts and communicate through an OpenVPN router.
 
 Replace every value in angle brackets, such as `<router-public-ip>`, with a value from your environment. Generate new VPN credentials for every deployment.
@@ -241,6 +243,7 @@ sudo ss -ltnp | grep 1194
 ssh -i <ssh-key> ubuntu@<scada-host>
 cd ~/openvpn-ca
 sudo openvpn --config client.conf --daemon
+sudo sysctl -w net.ipv4.ip_forward=1
 ping -c 3 10.8.0.1
 ping -c 3 10.8.0.2
 cd /home/ubuntu/Modbus-U-software-testbed
@@ -261,6 +264,7 @@ In another terminal:
 ssh -i <ssh-key> ubuntu@<software-plc-host>
 cd ~/openvpn-ca
 sudo openvpn --config client.conf --daemon
+sudo sysctl -w net.ipv4.ip_forward=1
 ping -c 3 10.8.0.1
 ping -c 3 10.8.0.3
 cd /home/ubuntu/Modbus-U-software-testbed
