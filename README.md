@@ -1,5 +1,7 @@
 # ICS-Sniper Modbus-U Software Testbed
 
+Archived as part of the ICS-Sniper artifact: https://doi.org/10.5281/zenodo.23737012
+
 **SWaT software testbed (Unconnected Modbus version)**
 
 This repository contains the software-only Modbus/TCP testbed used by ICS-Sniper. Six simulated PLCs and the SCADA application run on Linux hosts and communicate through an OpenVPN router.
