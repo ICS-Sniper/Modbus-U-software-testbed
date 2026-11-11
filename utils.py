@@ -82,7 +82,7 @@ IP = {
     'plc5': 'localhost:507',
     'plc6': 'localhost:508',
     # 'scada': '35.91.6.245:502'
-    'scada': '10.8.0.3:502'
+    'scada': '10.8.0.4:502'
     # 'scada': 'localhost:502'
     # 'hist': '192.168.1.200',
     # 'workstation': '192.168.1.201'
