@@ -12,7 +12,7 @@ Replace every value in angle brackets, such as `<router-public-ip>`, with a valu
 
 ```text
 Software PLC host                OpenVPN router                 SCADA host
-OpenVPN: 10.8.0.2/24  <------->  OpenVPN: 10.8.0.1/24  <----> OpenVPN: 10.8.0.3/24
+OpenVPN: 10.8.0.5/24  <------->  OpenVPN: 10.8.0.1/24  <----> OpenVPN: 10.8.0.4/24
 PLC servers: TCP 503-508                                      SCADA: TCP 502
 ```
 
@@ -121,9 +121,9 @@ verb 3
 Assign stable VPN addresses:
 
 ```bash
-echo "ifconfig-push 10.8.0.2 255.255.255.0" | \
+echo "ifconfig-push 10.8.0.5 255.255.255.0" | \
   sudo tee /etc/openvpn/ccd/plc-gateway >/dev/null
-echo "ifconfig-push 10.8.0.3 255.255.255.0" | \
+echo "ifconfig-push 10.8.0.4 255.255.255.0" | \
   sudo tee /etc/openvpn/ccd/scada >/dev/null
 ```
 
@@ -247,7 +247,7 @@ cd ~/openvpn-ca
 sudo openvpn --config client.conf --daemon
 sudo sysctl -w net.ipv4.ip_forward=1
 ping -c 3 10.8.0.1
-ping -c 3 10.8.0.2
+ping -c 3 10.8.0.5
 cd /home/ubuntu/Modbus-U-software-testbed
 sudo .venv/bin/python SCADA_1.py
 ```
@@ -268,7 +268,7 @@ cd ~/openvpn-ca
 sudo openvpn --config client.conf --daemon
 sudo sysctl -w net.ipv4.ip_forward=1
 ping -c 3 10.8.0.1
-ping -c 3 10.8.0.3
+ping -c 3 10.8.0.4
 cd /home/ubuntu/Modbus-U-software-testbed
 sudo .venv/bin/python plc_main.py
 ```
